@@ -8,7 +8,8 @@ export default function Home() {
         <title>BWL Test</title>
       </Head>
 
-      <AuthCard />
+      <AuthCard type="login">
+      </AuthCard>
     </Layout>
   )
 }

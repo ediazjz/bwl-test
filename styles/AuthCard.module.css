@@ -1,0 +1,83 @@
+.container {
+  width: 100%;
+  margin-bottom: 15%;
+  padding: 1rem;
+  background-color: #FFF;
+  box-shadow: 0px 8px 16px rgba(44, 44, 44, 0.1);
+}
+
+.title {
+  margin-bottom: 1rem !important;
+}
+
+/* Form common styles */
+.container form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container form > div {
+  margin-bottom: 1rem;
+}
+.container form label {
+  display: block;
+  color: rgba(44, 44, 44, 0.5);
+}
+.container form input {
+  width: 100%;
+  padding: .25rem 0;
+  border: none;
+  border-bottom: 3px solid var(--primary-color-lighter);
+  transition: all .25s ease-in-out;
+}
+.container form input::placeholder {
+  color: rgba(44, 44, 44, 0.5);
+}
+.container form input:placeholder-shown {
+  border-bottom: 3px solid rgba(44, 44, 44, 0.2);
+}
+.container form input:focus {
+  border-bottom: 3px solid var(--primary-color-darker);
+}
+
+.container form button {
+  width: 100%;
+}
+
+.options {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 75%;
+}
+
+.link {
+  color: var(--primary-color-darker);
+  transition: color .25s linear;
+}
+.link:hover {
+  color: var(--primary-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 75%;
+    padding: 1.25rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    width: 40%;
+    margin-bottom: 0;
+    padding: 1.5rem;
+  }
+
+  .title {
+    margin-bottom: 2rem !important;
+  }
+
+  .options {
+    margin-top: 3rem;
+  }
+}

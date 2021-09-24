@@ -1,11 +1,10 @@
-import { Layout } from "../components";
+import { AuthCard, Layout } from "../components";
 
 export default function SignUp() {
   return (
     <Layout>
-      <div>
-        SignUp Page
-      </div>
+      <AuthCard type="signup">
+      </AuthCard>
     </Layout>
   )
 }
