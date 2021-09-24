@@ -1,61 +1,32 @@
 import Head from 'next/head'
-import { useState } from 'react'
 
-import { useAuth } from '../components'
+import { AuthCard, Layout } from '../components'
+import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  const { signUp } = useAuth()
-
-  const handleSignUp = (e) => {
-    e.preventDefault()
-
-    signUp(email, password)
-  }
-
-  // if (error) {
-  //   return (
-  //     <div>
-  //       <p>Error: {error.message}</p>
-  //     </div>
-  //   )
-  // }
-  // if (loading) {
-  //   return <p>Loading...</p>
-  // }
-  // if (user) {
-  //   return (
-  //     <div>
-  //       <p>Registered User: {user.email}</p>
-  //     </div>
-  //   )
-  // }
-
   return (
-    <>
+    <Layout>
       <Head>
         <title>BWL Test</title>
       </Head>
 
-      <div className="App">
-        <form onSubmit={handleSignUp}>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">
-            Register
+      <AuthCard type="login">
+        <form>
+          <div className={styles.email}>
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="Tu email" />
+          </div>
+
+          <div className={styles.password}>
+            <label>Contraseña</label>
+            <input type="password" placeholder="Tu contraseña" />
+          </div>
+
+          <button className="btn btn--primary">
+            Enviar
           </button>
         </form>
-      </div>
-    </>
+      </AuthCard>
+    </Layout>
   )
 }

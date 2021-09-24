@@ -1,0 +1,96 @@
+.container {
+  width: 100%;
+  max-height: 100%;
+  padding: 1rem;
+  padding-top: 0;
+  align-self: flex-start;
+  background-color: #FFF;
+  box-shadow: 0px 8px 16px rgba(44, 44, 44, 0.1);
+  overflow-y: scroll;
+}
+
+.container__heading {
+  padding-top: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: #FFF;
+}
+
+.container hr {
+  margin-top: .75rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color-lighter);
+}
+
+.title {
+  color: var(--black);
+}
+
+.containerTable {
+  overflow-x: auto;
+}
+
+.usersList {
+  width: 100%;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+.usersList thead,
+.usersList tr {
+  display: flex;
+  justify-content: space-between;
+}
+.usersList tr,
+.usersList td {
+  flex: 0 1 100%;
+}
+.usersList thead > tr,
+.usersList td {
+  padding: 0rem 1rem;
+  max-width: 100%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.usersList thead {
+  padding: 1rem 0;
+  background-color: var(--primary-color-darker);
+  color: var(--white);
+}
+.usersList tbody tr {
+  padding: 1rem 0;
+}
+.usersList tbody tr:nth-child(even) {
+  background-color: rgba(44, 44, 44, 0.1);
+}
+.usersList th {
+  text-align: left;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    padding-top: 0;
+  }
+
+  .container__heading {
+    padding-top: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    padding: 2rem;
+    padding-top: 0;
+  }
+
+  .container__heading {
+    padding-top: 2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .usersList tr,
+  .usersList td {
+    flex: 0 1 25%;
+  }
+}

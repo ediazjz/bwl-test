@@ -1,0 +1,15 @@
+.email, .password, .repeatPassword, .name {
+  flex: 1 1 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .password, .repeatPassword {
+    flex: 1 1 50% !important;
+  }
+  .password {
+    padding-right: .75rem;
+  }
+  .repeatPassword {
+    padding-left: .75rem;
+  }
+}
