@@ -1,9 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+:root {
+  /* Theme colors */
+  --primary-color: #57CAF7;
+  --secondary-color: #5C82E4;
+
+  /* Feedback colors */
+  --success-color: #27A580;
+  --warning-color: #E0B412;
+  --fail-color: #C94145;
+
+  /* Neutral colors */
+  --white: #FAFAFA;
+  --black: #2C2C2C;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin: 0;
+  font-weight: 700;
+}
+h1, .h1 {
+  font-size: 2.25rem;
+}
+h2, .h2 {
+  font-size: 2rem;
+}
+h3, .h3 {
+  font-size: 1.75rem;
+}
+h4  .h4 {
+  font-size: 1.5rem;
+}
+h5, .h5 {
+  font-size: 1.25rem;
+}
+h6, .h6 {
+  font-size: 1.125rem;
+}
+
+p {
+  margin: 0;
 }
 
 a {
@@ -11,6 +66,54 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+@media only screen and (min-width: 768px) {
+  html,
+  body {
+    font-size: 1.125rem;
+  }
+
+  h1, .h1 {
+    font-size: 2.5rem;
+  }
+  h2, .h2 {
+    font-size: 2.25rem;
+  }
+  h3, .h3 {
+    font-size: 2rem;
+  }
+  h4  .h4 {
+    font-size: 1.75rem;
+  }
+  h5, .h5 {
+    font-size: 1.5rem;
+  }
+  h6, .h6 {
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  html,
+  body {
+    font-size: 1.25rem;
+  }
+
+  h1, .h1 {
+    font-size: 2.75rem;
+  }
+  h2, .h2 {
+    font-size: 2.5rem;
+  }
+  h3, .h3 {
+    font-size: 2.25rem;
+  }
+  h4, .h4 {
+    font-size: 2rem;
+  }
+  h5, .h5 {
+    font-size: 1.75rem;
+  }
+  h6, .h6 {
+    font-size: 1.5rem;
+  }
 }
