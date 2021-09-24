@@ -30,8 +30,8 @@
 /* Main */
 .main {
   height: 100vh;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,8 +46,8 @@ header + .main {
   }
 
   .main {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
   }
   header + .main {
     height: calc(100vh - 62px);
@@ -60,8 +60,8 @@ header + .main {
   }
 
   .main {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
   }
   header + .main {
     height: calc(100vh - 72px);
