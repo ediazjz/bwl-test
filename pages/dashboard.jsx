@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { Layout } from "../components";
+import { DashboardCard, Layout } from "../components"
 import styles from '../styles/Dashboard.module.css'
 
 export default function Dashboard() {
@@ -11,13 +11,13 @@ export default function Dashboard() {
       </Head>
 
       <div className={styles.grid}>
-        <div className={styles.weather}></div>
-        <div className={styles.selectedCountry}></div>
-        <div className={styles.pendingTasks}></div>
-        <div className={styles.completedTasks}></div>
-        <div className={styles.time}></div>
-        <div className={styles.timeZones}></div>
-        <div className={styles.countries}></div>
+        <DashboardCard title="Clima" className={styles.weather}><span>hola</span></DashboardCard>
+        <DashboardCard title="País seleccionado" className={styles.selectedCountry}><span>hola</span></DashboardCard>
+        <DashboardCard title="Tareas pendientes" className={styles.pendingTasks}><span>hola</span></DashboardCard>
+        <DashboardCard title="Tareas completadas" className={styles.completedTasks}><span>hola</span></DashboardCard>
+        <DashboardCard title="Hora" className={styles.time}><span>hola</span></DashboardCard>
+        <DashboardCard title="Zonas horarias disponibles" className={styles.timeZones}><span>hola</span></DashboardCard>
+        <DashboardCard title="Países disponibles" className={styles.countries}><span>hola</span></DashboardCard>
       </div>
     </Layout>
   )
