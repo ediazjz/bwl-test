@@ -3,7 +3,12 @@
 :root {
   /* Theme colors */
   --primary-color: #57CAF7;
+  --primary-color-lighter: #89DAF9;
+  --primary-color-darker: #46A2C6;
+
   --secondary-color: #5C82E4;
+  --secondary-color-lighter: #8DA8EC;
+  --secondary-color-darker: #4A68B6;
 
   /* Feedback colors */
   --success-color: #27A580;
@@ -13,6 +18,8 @@
   /* Neutral colors */
   --white: #FAFAFA;
   --black: #2C2C2C;
+
+  font-size: 16px;
 }
 
 html,
@@ -66,9 +73,57 @@ a {
   text-decoration: none;
 }
 
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input,
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+.container {
+  padding: 0 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: .5rem 1rem;
+  border: 1px solid transparent;
+  background-color: transparent;
+  transition: all .25s ease-in-out;
+  cursor: pointer;
+}
+
+.btn--primary {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+.btn--primary:hover {
+  border-color: var(--primary-color-darker);
+  background-color: var(--primary-color-darker);
+}
+
+.btn--outline {
+  border-color: var(--white);
+  color: var(--white);
+}
+.btn--outline:hover {
+  border-color: var(--primary-color-lighter);
+  background-color: var(--primary-color-lighter);
+  color: var(--white);
+}
+
 @media only screen and (min-width: 768px) {
   html,
-  body {
+  body,
+  input,
+  button {
     font-size: 1.125rem;
   }
 
@@ -90,11 +145,21 @@ a {
   h6, .h6 {
     font-size: 1.25rem;
   }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .btn {
+    padding: .5rem 1.25rem;
+  }
 }
 
 @media only screen and (min-width: 992px) {
   html,
-  body {
+  body,
+  input,
+  button {
     font-size: 1.25rem;
   }
 
@@ -115,5 +180,13 @@ a {
   }
   h6, .h6 {
     font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+
+  .btn {
+    padding: .5rem 1.5rem;
   }
 }
