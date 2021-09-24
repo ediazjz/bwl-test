@@ -1,5 +1,7 @@
 import Head from 'next/head'
 
+import PropTypes from 'prop-types'
+
 import { AuthProvider } from '../components'
 import '../styles/globals.css'
 
@@ -18,3 +20,8 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType,
+  pageProps: PropTypes.object
+}
