@@ -1,7 +1,11 @@
+import { Layout } from "../components";
+
 export default function Dashboard() {
   return (
-    <div>
-      Dashboard Page
-    </div>
+    <Layout>
+      <div>
+        Dashboard Page
+      </div>
+    </Layout>
   )
 }

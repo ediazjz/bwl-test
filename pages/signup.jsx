@@ -1,7 +1,11 @@
+import { Layout } from "../components";
+
 export default function SignUp() {
   return (
-    <div>
-      SignUp Page
-    </div>
+    <Layout>
+      <div>
+        SignUp Page
+      </div>
+    </Layout>
   )
 }
