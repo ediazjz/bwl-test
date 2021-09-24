@@ -13,7 +13,7 @@ export const DashboardCard = ({ className, title, children }) => {
   )
 }
 
-DashboardCard.propTypes = {
+DashboardCard.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
   children: PropTypes.node
