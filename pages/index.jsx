@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useState } from 'react'
+
 import { useAuth } from '../components'
 
 export default function Home() {
@@ -33,22 +34,28 @@ export default function Home() {
   // }
 
   return (
-    <div className="App">
-      <form onSubmit={handleSignUp}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">
-          Register
-        </button>
-      </form>
-    </div>
+    <>
+      <Head>
+        <title>BWL Test</title>
+      </Head>
+
+      <div className="App">
+        <form onSubmit={handleSignUp}>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">
+            Register
+          </button>
+        </form>
+      </div>
+    </>
   )
 }
