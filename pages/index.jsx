@@ -1,11 +1,13 @@
-import Head from 'next/head'
 import { useState } from 'react'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import { AuthCard, Layout, useAuth } from '../components'
 import styles from '../styles/Home.module.css'
 import { validateEmail } from '../lib/validations'
 
 export default function Home() {
+  const router = useRouter()
   const [ formData, setFormData ] = useState({
     email: '',
     password: ''
@@ -26,6 +28,7 @@ export default function Home() {
       setError('')
       setIsLoading(true)
       await logIn(formData.email, formData.password)
+      router.push("/dashboard")
     }
     catch(err) {
       err.code === "auth/user-not-found"

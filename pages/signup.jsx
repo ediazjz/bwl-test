@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import { AuthCard, Layout, useAuth } from "../components"
 import styles from '../styles/SignUp.module.css'
 import { validateEmail } from '../lib/validations'
 
 export default function SignUp() {
+  const router = useRouter()
   const [ formData, setFormData ] = useState({
     email: '',
     password: '',
@@ -35,6 +37,7 @@ export default function SignUp() {
       setError('')
       setIsLoading(true)
       await signUp(formData.email, formData.password)
+      router.push("/dashboard")
     }
     catch {
       setError("Ocurrió un error al crear la cuenta. Intenta de nuevo por favor")
