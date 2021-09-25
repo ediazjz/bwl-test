@@ -4,12 +4,20 @@ import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
 import { useAuth } from "../components"
-import { auth } from '../lib/firebase'
 import styles from '../styles/Layout.module.css'
 
 export const Layout = ({ children }) => {
   const router = useRouter()
-  const { currentUser } = useAuth()
+  const { currentUser, logOut } = useAuth()
+
+  const handleLogOut = async() => {
+    try {
+      await logOut()
+      router.push("/")
+    } catch {
+      alert("Algo salió mal al cerrar la sesión, intenta de nuevo")
+    }
+  }
 
   return (
     <>
@@ -37,7 +45,7 @@ export const Layout = ({ children }) => {
 
           <div>
             {currentUser && (
-              <button className={`btn btn--outline ${styles.logout}`} onClick={() => {auth.signOut(); router.push("/")}}>
+              <button className={`btn btn--outline ${styles.logout}`} onClick={handleLogOut}>
                 Cerrar sesión
               </button>
             )}
