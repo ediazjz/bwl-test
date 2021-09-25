@@ -1,9 +1,20 @@
+import { useEffect } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
-import { DashboardCard, Layout } from "../components"
+import { DashboardCard, Layout, useAuth } from "../components"
 import styles from '../styles/Dashboard.module.css'
 
 export default function Dashboard() {
+  const router = useRouter()
+  const { currentUser } = useAuth()
+
+  useEffect(() => {
+    if(!currentUser) {
+      router.push("/")
+    }
+  }, [])
+
   return (
     <Layout>
       <Head>
