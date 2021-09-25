@@ -3,10 +3,13 @@ import { useRouter } from 'next/router'
 
 import PropTypes from 'prop-types'
 
+import { useAuth } from "../components"
+import { auth } from '../lib/firebase'
 import styles from '../styles/Layout.module.css'
 
 export const Layout = ({ children }) => {
   const router = useRouter()
+  const { currentUser } = useAuth()
 
   return (
     <>
@@ -33,9 +36,11 @@ export const Layout = ({ children }) => {
           </nav>
 
           <div>
-            <button className={`btn btn--outline ${styles.logout}`}>
-              Cerrar sesión
-            </button>
+            {currentUser && (
+              <button className={`btn btn--outline ${styles.logout}`} onClick={() => {auth.signOut(); router.push("/")}}>
+                Cerrar sesión
+              </button>
+            )}
           </div>
         </header>
       }
