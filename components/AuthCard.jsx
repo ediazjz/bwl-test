@@ -4,12 +4,14 @@ import PropTypes from 'prop-types'
 
 import styles from '../styles/AuthCard.module.css'
 
-export const AuthCard = ({ type, children}) => {
+export const AuthCard = ({ type, children, error}) => {
   return (
     <div className={styles.container}>
       <h1 className={`h6 ${styles.title}`}>
         {type === "login" ? "Bienvenido" : "Crear cuenta"}
       </h1>
+
+      {error && <span className={styles.errorMessage}>{error}</span>}
 
       {children}
 
@@ -30,5 +32,6 @@ export const AuthCard = ({ type, children}) => {
 
 AuthCard.propTypes = {
   type: PropTypes.oneOf(['login', 'signup']),
-  children: PropTypes.node
+  children: PropTypes.node,
+  error: PropTypes.string
 }
