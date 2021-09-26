@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react"
 
+import PropTypes from 'prop-types'
+
 const TimeZoneContext = createContext()
 export const useTimeZone = () => {
   return useContext(TimeZoneContext)
@@ -17,4 +19,8 @@ export const TimeZoneProvider = ({ children }) => {
       {children}
     </TimeZoneContext.Provider>
   )
+}
+
+TimeZoneProvider.propTypes = {
+  children: PropTypes.node
 }

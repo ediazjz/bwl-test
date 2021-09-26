@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-
 import { ErrorCard, SkeletonLoader, useTimeZone } from "."
 import styles from '../styles/Time.module.css'
 
@@ -29,7 +28,7 @@ export const Time = () => {
         setIsLoading(false)
       )
   }
-
+  
   useEffect(() => {
     getTime()
   }, [currentTimeZone])
