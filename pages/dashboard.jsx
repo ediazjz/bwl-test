@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { Countries, Country, DashboardCard, Layout, Tasks, TimeZones, CountryProvider, TimeZoneProvider } from "../components"
+import { Countries, Country, DashboardCard, Layout, Tasks, TimeZones, CountryProvider, TimeZoneProvider, Weather } from "../components"
 import styles from '../styles/Dashboard.module.css'
 
 export default function Dashboard() {
@@ -20,7 +20,9 @@ export default function Dashboard() {
           </DashboardCard>
 
           <TimeZoneProvider>
-            <DashboardCard title="Clima" className={styles.weather}><span>hola</span></DashboardCard>
+            <DashboardCard title="Clima" className={styles.weather}>
+              <Weather />
+            </DashboardCard>
             <DashboardCard title="Hora" className={styles.time}><span>hola</span></DashboardCard>
             <DashboardCard title="Zonas horarias disponibles" className={styles.timeZones}>
               <TimeZones />

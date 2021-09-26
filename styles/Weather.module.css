@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+}
+
+.containerText {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 2rem;
+}
+.containerText span {
+  width: 100%;
+  height: max-content;
+}
+
+.temperature {
+  font-size: 150%;
+  font-weight: 700;
+}
