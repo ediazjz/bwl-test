@@ -59,5 +59,6 @@
       "pendingTasks pendingTasks time time countries"
       "completedTasks completedTasks timeZones timeZones countries";
     grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr;
+    grid-template-rows: 1fr 1fr minmax(0, 1fr);
   }
 }
