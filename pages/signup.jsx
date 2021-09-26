@@ -25,6 +25,9 @@ export default function SignUp() {
     if(!validateEmail(formData.email)) {
       return setError("El correo electrónico no es válido")
     }
+    if(formData.password < 6) {
+      return setError("La contraseña debe tener al menos 6 caracteres")
+    }
     if(formData.password !== formData.confirmPassword) {
       return setError("Las contraseñas no coinciden")
     }
