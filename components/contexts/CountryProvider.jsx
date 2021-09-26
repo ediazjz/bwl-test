@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react"
 
+import PropTypes from 'prop-types'
+
 const CountryContext = createContext()
 export const useCountry = () => {
   return useContext(CountryContext)
@@ -23,4 +25,8 @@ export const CountryProvider = ({ children }) => {
       {children}
     </CountryContext.Provider>
   )
+}
+
+CountryProvider.propTypes = {
+  children: PropTypes.node
 }

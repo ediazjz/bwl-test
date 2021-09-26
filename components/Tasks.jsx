@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 export const Tasks = ({ content }) => {
   return (
     <ul>
@@ -6,4 +8,8 @@ export const Tasks = ({ content }) => {
       })}
     </ul>
   )
+}
+
+Tasks.propTypes = {
+  content: PropTypes.array.isRequired
 }
