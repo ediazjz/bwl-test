@@ -14,7 +14,7 @@ export const TimeZones = () => {
     setError('')
     setIsLoading(true)
 
-    fetch(`http://api.timezonedb.com/v2.1/list-time-zone?key=${process.env.NEXT_PUBLIC_TIME_ZONE_API_KEY}&format=json&country=${currentCountry.code}`)
+    fetch(`https://api.timezonedb.com/v2.1/list-time-zone?key=${process.env.NEXT_PUBLIC_TIME_ZONE_API_KEY}&format=json&country=${currentCountry.code}`)
       .then(res => {
         return res.json()
       })

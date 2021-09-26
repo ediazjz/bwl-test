@@ -14,7 +14,7 @@ export const Weather = () => {
     setError('')
     setIsLoading(true)
 
-    fetch(`http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${currentTimeZone}&aqi=no`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${currentTimeZone}&aqi=no`)
       .then(res => {
         return res.json()
       })
