@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import { useCountry } from '.'
-import styles from '../styles/Countries.module.css'
+import styles from '../styles/Lists.module.css'
 
 export const Countries = () => {
   const { currentCountry, updateCountry } = useCountry()
