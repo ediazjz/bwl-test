@@ -1,20 +1,21 @@
-import { useEffect } from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
-import { DashboardCard, Layout, Tasks, useAuth } from "../components"
+import { Countries, DashboardCard, Layout, Tasks } from "../components"
+import { CountryProvider } from '../components/contexts/CountryProvider'
 import styles from '../styles/Dashboard.module.css'
 
+// export async function getServerSideProps(context) {
+//   const res = await fetch("http://api.timezonedb.com/v2.1/list-time-zone?key=LLXYFKR07KQM&format=json&zone=America*")
+//   const data = await res.json()
+
+//   return {
+//     props: {
+//       countriesList: data.zones
+//     },
+//   }
+// }
+
 export default function Dashboard() {
-  const router = useRouter()
-  const { currentUser } = useAuth()
-
-  useEffect(() => {
-    if(!currentUser) {
-      router.push("/")
-    }
-  }, [])
-
   return (
     <Layout>
       <Head>
@@ -22,11 +23,15 @@ export default function Dashboard() {
       </Head>
 
       <div className={styles.grid}>
-        <DashboardCard title="Clima" className={styles.weather}><span>hola</span></DashboardCard>
-        <DashboardCard title="País seleccionado" className={styles.selectedCountry}><span>hola</span></DashboardCard>
-        <DashboardCard title="Hora" className={styles.time}><span>hola</span></DashboardCard>
-        <DashboardCard title="Zonas horarias disponibles" className={styles.timeZones}><span>hola</span></DashboardCard>
-        <DashboardCard title="Países disponibles" className={styles.countries}><span>hola</span></DashboardCard>
+        <CountryProvider>
+          <DashboardCard title="Países disponibles" className={styles.countries}>
+            <Countries />
+          </DashboardCard>
+          <DashboardCard title="Clima" className={styles.weather}><span>hola</span></DashboardCard>
+          <DashboardCard title="País seleccionado" className={styles.selectedCountry}><span>hola</span></DashboardCard>
+          <DashboardCard title="Hora" className={styles.time}><span>hola</span></DashboardCard>
+          <DashboardCard title="Zonas horarias disponibles" className={styles.timeZones}><span>hola</span></DashboardCard>
+        </CountryProvider>
 
         <DashboardCard title="Tareas pendientes" className={styles.pendingTasks}>
           <Tasks content={tasksList.filter(task => task.state === "pending")} />
