@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { AuthCard, Layout, useAuth } from '../components'
 import styles from '../styles/Home.module.css'
 import { validateEmail } from '../lib/validations'
+import { firestore, serverTimestamp } from '../lib/firebase'
 
 export default function Home() {
   const router = useRouter()
@@ -27,8 +28,18 @@ export default function Home() {
     try {
       setError('')
       setIsLoading(true)
-      await logIn(formData.email, formData.password)
-      router.push("/dashboard")
+      const formRes = await logIn(formData.email, formData.password)
+
+      try {
+        const userID = formRes.user.providerData[0].uid
+        const userDoc = firestore.doc(`users/${userID}`)
+
+        await userDoc.update({lastLoginAt: serverTimestamp()})
+        router.push("/dashboard")
+      }
+      catch(err) {
+        console.log(err)
+      }
     }
     catch(err) {
       err.code === "auth/user-not-found"
