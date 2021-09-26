@@ -5,6 +5,7 @@ export { Layout } from './Layout'
 
 export { AuthCard } from './AuthCard'
 export { DashboardCard } from './DashboardCard'
+export { SkeletonLoader } from './SkeletonLoader'
 
 export { Tasks } from './Tasks'
 export { Countries } from './Countries'
