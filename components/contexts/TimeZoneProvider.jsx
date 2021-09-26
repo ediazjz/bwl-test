@@ -6,7 +6,7 @@ export const useTimeZone = () => {
 }
 
 export const TimeZoneProvider = ({ children }) => {
-  const [currentTimeZone, setCurrentTimeZone] = useState('')
+  const [currentTimeZone, setCurrentTimeZone] = useState('Mexico City')
 
   const updateTimeZone = (timeZone) => {
     setCurrentTimeZone(timeZone)
