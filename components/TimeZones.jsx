@@ -10,26 +10,24 @@ export const TimeZones = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const getTimeZones = async() => {
+  const getTimeZones = () => {
     setError('')
     setIsLoading(true)
 
-    let list
-
-    try {
-      list = await fetch(`http://api.timezonedb.com/v2.1/list-time-zone?key=${process.env.NEXT_PUBLIC_TIME_ZONE_API_KEY}&format=json&country=${currentCountry.code}`)
-        .then(response => {
-          return response.json()
-        })
-    }
-    catch {
-      setError(`No se pudieron conseguir las zonas horarias de ${currentCountry.name}.\nIntenta de nuevo recargando la página`)
-    }
-    finally {
-      setIsLoading(false)
-    }
-
-    setTimeZonesList(list.zones)
+    fetch(`http://api.timezonedb.com/v2.1/list-time-zone?key=${process.env.NEXT_PUBLIC_TIME_ZONE_API_KEY}&format=json&country=${currentCountry.code}`)
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        setTimeZonesList(data.zones)
+      })
+      .catch(err => {
+        console.error(err)
+        setError(`No se pudieron conseguir las zonas horarias de ${currentCountry.name}.\nIntenta de nuevo recargando la página`)
+      })
+      .finally(() => 
+        setIsLoading(false)
+      )
   }
 
   useEffect(() => {
