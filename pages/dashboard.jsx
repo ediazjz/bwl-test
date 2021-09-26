@@ -1,19 +1,7 @@
 import Head from 'next/head'
 
-import { Countries, Country, DashboardCard, Layout, Tasks } from "../components"
-import { CountryProvider } from '../components/contexts/CountryProvider'
+import { Countries, Country, DashboardCard, Layout, Tasks, TimeZones, CountryProvider, TimeZoneProvider } from "../components"
 import styles from '../styles/Dashboard.module.css'
-
-// export async function getServerSideProps(context) {
-//   const res = await fetch("http://api.timezonedb.com/v2.1/list-time-zone?key=LLXYFKR07KQM&format=json&zone=America*")
-//   const data = await res.json()
-
-//   return {
-//     props: {
-//       countriesList: data.zones
-//     },
-//   }
-// }
 
 export default function Dashboard() {
   return (
@@ -27,14 +15,17 @@ export default function Dashboard() {
           <DashboardCard title="Países disponibles" className={styles.countries}>
             <Countries />
           </DashboardCard>
-
           <DashboardCard title="País seleccionado" className={styles.selectedCountry}>
             <Country />
           </DashboardCard>
-          <DashboardCard title="Clima" className={styles.weather}><span>hola</span></DashboardCard>
 
-          <DashboardCard title="Hora" className={styles.time}><span>hola</span></DashboardCard>
-          <DashboardCard title="Zonas horarias disponibles" className={styles.timeZones}><span>hola</span></DashboardCard>
+          <TimeZoneProvider>
+            <DashboardCard title="Clima" className={styles.weather}><span>hola</span></DashboardCard>
+            <DashboardCard title="Hora" className={styles.time}><span>hola</span></DashboardCard>
+            <DashboardCard title="Zonas horarias disponibles" className={styles.timeZones}>
+              <TimeZones />
+            </DashboardCard>
+          </TimeZoneProvider>
         </CountryProvider>
 
         <DashboardCard title="Tareas pendientes" className={styles.pendingTasks}>
