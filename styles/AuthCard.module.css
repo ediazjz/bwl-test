@@ -59,6 +59,16 @@
   color: var(--primary-color);
 }
 
+.errorMessage {
+  margin-bottom: 1rem;
+  padding: .5rem 1rem;
+  display: block;
+  background-color: var(--fail-color);
+  color: var(--white);
+  font-size: 75%;
+  text-align: center;
+}
+
 @media only screen and (min-width: 768px) {
   .container {
     width: 75%;

@@ -3,10 +3,21 @@ import { useRouter } from 'next/router'
 
 import PropTypes from 'prop-types'
 
+import { useAuth } from "../components"
 import styles from '../styles/Layout.module.css'
 
 export const Layout = ({ children }) => {
   const router = useRouter()
+  const { currentUser, logOut } = useAuth()
+
+  const handleLogOut = async() => {
+    try {
+      await logOut()
+      router.push("/")
+    } catch {
+      alert("Algo salió mal al cerrar la sesión, intenta de nuevo")
+    }
+  }
 
   return (
     <>
@@ -33,9 +44,11 @@ export const Layout = ({ children }) => {
           </nav>
 
           <div>
-            <button className={`btn btn--outline ${styles.logout}`}>
-              Cerrar sesión
-            </button>
+            {currentUser && (
+              <button className={`btn btn--outline ${styles.logout}`} onClick={handleLogOut}>
+                Cerrar sesión
+              </button>
+            )}
           </div>
         </header>
       }

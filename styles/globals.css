@@ -108,6 +108,9 @@ button {
   transition: all .25s ease-in-out;
   cursor: pointer;
 }
+.btn:disabled {
+  opacity: .5;
+}
 
 .btn--primary {
   border-color: var(--primary-color);
