@@ -37,7 +37,7 @@
   align-items: center;
 }
 header + .main {
-  height: calc(100vh - 51px);
+  height: 100%;
 }
 
 @media only screen and (min-width: 768px) {
@@ -48,9 +48,6 @@ header + .main {
   .main {
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
-  }
-  header + .main {
-    height: calc(100vh - 62px);
   }
 }
 
