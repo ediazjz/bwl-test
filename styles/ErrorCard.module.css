@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--fail-color);
+  display: flex;
+}
+
+.text {
+  color: var(--fail-color);
+  font-size: 80%;
+  white-space: break-spaces;
+}

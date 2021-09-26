@@ -3,13 +3,10 @@
   background-color: #FFF;
   box-shadow: 0px 2px 4px rgba(44, 44, 44, 0.1);
   transition: box-shadow .25s ease-in-out;
+  overflow-y: scroll;
 }
 .card:hover {
   box-shadow: 0px 8px 16px rgba(44, 44, 44, 0.1);
-}
-.card * {
-  opacity: 0.75;
-  transition: opacity .25s ease-in-out;
 }
 .card:hover *,
 .card:hover .title,
