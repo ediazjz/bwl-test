@@ -50,8 +50,8 @@ export const TimeZones = () => {
     <ul className={styles.timeZones}>
       {timeZonesList?.map((zone, index) => {
         return (
-          <li key={index} className={`${styles.item} ${currentTimeZone === standardizeZoneName(zone.zoneName) && styles.itemActive}`}>
-            <button className={`btn ${styles.button}`} onClick={() => updateTimeZone(standardizeZoneName(zone.zoneName))}>
+          <li key={index} className={`${styles.item} ${currentTimeZone === (zone.zoneName) && styles.itemActive}`}>
+            <button className={`btn ${styles.button}`} onClick={() => updateTimeZone(zone.zoneName)}>
               {standardizeZoneName(zone.zoneName)}
             </button>
           </li>
