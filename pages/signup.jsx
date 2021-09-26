@@ -14,7 +14,7 @@ export default function SignUp() {
     confirmPassword: '',
     fullName: ''
   })
-  const { signUp } = useAuth()
+  const { signUp, updateName } = useAuth()
   const [ error, setError ] = useState('')
   const [ isLoading, setIsLoading ] = useState(false)
 
@@ -38,6 +38,14 @@ export default function SignUp() {
       setIsLoading(true)
       await signUp(formData.email, formData.password)
       router.push("/dashboard")
+
+      try {
+        await updateName(formData.fullName)
+      }
+      catch(err) {
+        console.log(err)
+        setError("Ocurrió un error al configurar tu nombre")
+      }
     }
     catch {
       setError("Ocurrió un error al crear la cuenta. Intenta de nuevo por favor")
