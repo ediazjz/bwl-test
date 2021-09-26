@@ -13,7 +13,7 @@ export const Time = () => {
     setError('')
     setIsLoading(true)
 
-    fetch(`http://api.timezonedb.com/v2.1/get-time-zone?key=${process.env.NEXT_PUBLIC_TIME_ZONE_API_KEY}&format=json&by=zone&zone=${currentTimeZone}`)
+    fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${process.env.NEXT_PUBLIC_TIME_ZONE_API_KEY}&format=json&by=zone&zone=${currentTimeZone}`)
       .then(res => {
         return res.json()
       })
