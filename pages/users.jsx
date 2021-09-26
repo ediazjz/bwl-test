@@ -1,20 +1,36 @@
-import { useEffect } from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
-import { Layout, useAuth } from "../components"
+import { Layout } from "../components"
 import styles from '../styles/Users.module.css'
+import { firestore } from '../lib/firebase'
 
-export default function Users() {
-  const router = useRouter()
-  const { currentUser } = useAuth()
+export async function getServerSideProps() {
+  const usersDoc = await getUsers()
 
-  useEffect(() => {
-    if(!currentUser) {
-      router.push("/")
+  const usersList = usersDoc.docs.map(doc => {
+    const data = doc.data()
+    const id = doc.id
+
+    return {
+      id,
+      ...data
     }
-  }, [])
+  })
 
+  const users = JSON.stringify(usersList)
+  return {
+    props: {
+      users
+    }
+  }
+}
+
+async function getUsers() {
+  const snapshot = await firestore.collection('users').get()
+  return snapshot
+}
+
+export default function Users({ users }) {
   return (
     <Layout>
       <Head>
@@ -46,24 +62,17 @@ export default function Users() {
           </thead>
 
           <tbody>
-            <tr>
-              <td>Luis Miguel</td>
-              <td>luis.miguel@gmail.com</td>
-              <td>19/09/2021</td>
-              <td>22/09/2021 11:25</td>
-            </tr>
-            <tr>
-              <td>Julieta Venegas</td>
-              <td>julieta.venegas@gmail.com</td>
-              <td>20/09/2021</td>
-              <td>21/09/2021 20:45</td>
-            </tr>
-            <tr>
-              <td>Edgar Diaz</td>
-              <td>edagr.diaz@gmail.com</td>
-              <td>23/09/2021</td>
-              <td>24/09/2021 06:31</td>
-            </tr>
+            {JSON.parse(users).map((user, index) => {
+              console.log(user)
+              return (
+                <tr key={index}>
+                  <td>{user.fullName}</td>
+                  <td>{user.email}</td>
+                  <td>{new Date(user.createdAt.seconds * 1000).toLocaleDateString('es-MX')}</td>
+                  <td>{new Date(user.lastLoginAt.seconds * 1000).toLocaleDateString('es-MX', { hour: 'numeric', minute: 'numeric' })}</td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
         </div>
