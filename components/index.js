@@ -8,3 +8,4 @@ export { DashboardCard } from './DashboardCard'
 
 export { Tasks } from './Tasks'
 export { Countries } from './Countries'
+export { Country } from './Country'
