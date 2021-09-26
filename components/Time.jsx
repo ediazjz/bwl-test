@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { ErrorCard, SkeletonLoader, useTimeZone } from "."
+import styles from '../styles/Time.module.css'
 
 export const Time = () => {
   const { currentTimeZone } = useTimeZone()
-  const [time, setTime] = useState('')
+  const [time, setTime] = useState()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -17,7 +18,7 @@ export const Time = () => {
         return res.json()
       })
       .then(data => {
-        setTime(data.formatted)
+        setTime(new Date(data.formatted))
       })
       .catch((err) => {
         console.error(err)
@@ -27,25 +28,10 @@ export const Time = () => {
         setIsLoading(false)
       )
   }
-
-  const runClock = (time) => {
-    const clock = new Date(time)
-
-    // setInterval(() => {
-    //   if(clock) {
-    //     clock.setSeconds(clock.getSeconds() + 1)
-    //     console.log(clock)
-    //   }
-    // }, 1000)
-
-    return clock.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric' })
-  }
-
+  
   useEffect(() => {
     getTime()
-
-    runClock(time)
-  }, [currentTimeZone, time])
+  }, [currentTimeZone])
 
   if(isLoading) {
     return <SkeletonLoader />
@@ -55,9 +41,10 @@ export const Time = () => {
   }
 
   return (
-    <div>
-      {runClock()}
-      {/* {time?.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric' })} */}
+    <div className={styles.container}>
+      <span className={styles.clock}>
+        {time?.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true })}
+      </span>
     </div>
   )
 }

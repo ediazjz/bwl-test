@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { AuthCard, Layout, useAuth } from "../components"
 import styles from '../styles/SignUp.module.css'
 import { validateEmail } from '../lib/validations'
+import { firestore, serverTimestamp } from '../lib/firebase'
 
 export default function SignUp() {
   const router = useRouter()
@@ -39,11 +40,20 @@ export default function SignUp() {
     try {
       setError('')
       setIsLoading(true)
-      await signUp(formData.email, formData.password)
-      router.push("/dashboard")
+      const formRes = await signUp(formData.email, formData.password)
 
       try {
-        await updateName(formData.fullName)
+        const userID = formRes.user.providerData[0].uid
+        const userDoc = firestore.doc(`users/${userID}`)
+        const data = {
+          fullName: formData.fullName,
+          email: formData.email,
+          createdAt: serverTimestamp(),
+          lastLoginAt: serverTimestamp()
+        }
+
+        await userDoc.set(data)
+        router.push("/dashboard")
       }
       catch(err) {
         console.log(err)
