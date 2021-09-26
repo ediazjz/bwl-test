@@ -1,5 +1,7 @@
 import Head from 'next/head'
 
+import PropTypes from 'prop-types'
+
 import { Layout } from "../components"
 import styles from '../styles/Users.module.css'
 import { firestore } from '../lib/firebase'
@@ -63,7 +65,6 @@ export default function Users({ users }) {
 
           <tbody>
             {JSON.parse(users).map((user, index) => {
-              console.log(user)
               return (
                 <tr key={index}>
                   <td>{user.fullName}</td>
@@ -79,4 +80,8 @@ export default function Users({ users }) {
       </div>
     </Layout>
   )
+}
+
+Users.propTypes = {
+  users: PropTypes.string.isRequired
 }

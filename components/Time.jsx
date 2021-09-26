@@ -40,10 +40,6 @@ export const Time = () => {
     return <ErrorCard error={error} />
   }
 
-  const addZeroBefore = date => {
-    return (date < 10 ? '0' : '') + date;
-  }
-
   return (
     <div className={styles.container}>
       <span className={styles.clock}>
