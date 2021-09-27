@@ -2,10 +2,10 @@ import { useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
+import { firestore, serverTimestamp } from '../lib/firebase'
+import { validateEmail } from '../lib/validations'
 import { AuthCard, Layout, useAuth } from "../components"
 import styles from '../styles/SignUp.module.css'
-import { validateEmail } from '../lib/validations'
-import { firestore, serverTimestamp } from '../lib/firebase'
 
 export default function SignUp() {
   const router = useRouter()
