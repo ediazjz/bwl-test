@@ -19,6 +19,34 @@
   width: 60%;
 }
 
+.weather, .time {
+  display: flex;
+  flex-wrap: wrap;
+}
+.weather > div:first-of-type {
+  height: 64px;
+  flex: 1 1 25%;
+  margin-right: 1rem;
+}
+.weather .wrapper {
+  flex: 1 1 70%;
+}
+.weather .wrapper div:first-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.time {
+  justify-content: center;
+}
+.time > div:first-of-type {
+  width: 75%;
+  height: 64px;
+  margin: 0 auto;
+}
+.time .wrapper {
+  display: none;
+}
+
 @keyframes pulse {
   0%, 100% {
     opacity: 1;

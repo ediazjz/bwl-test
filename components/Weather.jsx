@@ -35,7 +35,7 @@ export const Weather = () => {
   }, [currentTimeZone]) 
 
   if(isLoading) {
-    return <SkeletonLoader />
+    return <SkeletonLoader type="weather" />
   }
   if(error) {
     return <ErrorCard error={error} />

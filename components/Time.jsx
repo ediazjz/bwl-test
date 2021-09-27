@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+
 import { ErrorCard, SkeletonLoader, useTimeZone } from "."
 import styles from '../styles/Time.module.css'
 
@@ -33,8 +34,8 @@ export const Time = () => {
     getTime()
   }, [currentTimeZone])
 
-  if(isLoading) {
-    return <SkeletonLoader />
+  if(!isLoading) {
+    return <SkeletonLoader type="time" />
   }
   if(error) {
     return <ErrorCard error={error} />

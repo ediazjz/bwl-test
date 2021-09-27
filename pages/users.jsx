@@ -2,9 +2,9 @@ import Head from 'next/head'
 
 import PropTypes from 'prop-types'
 
+import { firestore } from '../lib/firebase'
 import { Layout } from "../components"
 import styles from '../styles/Users.module.css'
-import { firestore } from '../lib/firebase'
 
 export async function getServerSideProps() {
   const usersDoc = await getUsers()
