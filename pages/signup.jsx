@@ -15,7 +15,7 @@ export default function SignUp() {
     confirmPassword: '',
     fullName: ''
   })
-  const { signUp, updateName } = useAuth()
+  const { signUp } = useAuth()
   const [ error, setError ] = useState('')
   const [ isLoading, setIsLoading ] = useState(false)
 
