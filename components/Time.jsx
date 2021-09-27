@@ -34,8 +34,8 @@ export const Time = () => {
     getTime()
   }, [currentTimeZone])
 
-  if(isLoading) {
-    return <SkeletonLoader />
+  if(!isLoading) {
+    return <SkeletonLoader type="time" />
   }
   if(error) {
     return <ErrorCard error={error} />
